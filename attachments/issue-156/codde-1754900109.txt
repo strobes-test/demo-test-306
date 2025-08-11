@@ -1,0 +1,51 @@
+def run_pipeline(input):
+    asset_type = {
+        1: "Web",
+        2: "Mobile",
+    ...
+        222: "User",
+    }
+    severity = {1: "Info", 2: "Low", 3: "Medium", 4: "High", 5: "Critical"}
+    cloud_type = {1: "Others", 2: "AWS", 3: "Azure", 4: "GCP"}
+    sensitivity = {0: "None", 1: "Low", 2: "Medium", 3: "High", 4: "Critical"}
+    
+    title = "[ZERODAY] - " + input.title if input.zero_day_available else input.title
+    description = input.description
+    cve_id = "N/A"
+    cvss = 0
+    cve_string = "N/A"
+    cwe_id = "N/A"
+    cwe_type = "N/A"
+
+    if input.prefetched_cve:
+        cve = input.prefetched_cve[0]
+
+        cve_id = cve.cve_id
+        cvss = cve.cvss
+        cve_string = cve.cvss_v3_data['vectorString'] if cve.cvss_v3_data['vectorString'] else "N/A"
+
+    if input.prefetched_cwe:
+        cwe = input.prefetched_cwe[0]
+
+        cwe_id = cwe.cwe_id
+        cwe_type = cwe.type
+
+    return {
+        "title": title,
+        "desription": description,
+        "mitigation": input.mitigation if input.mitigation else "N/A",
+        "exploit_avail": "Yes" if input.exploit_available else "No",
+        "exploit_info": input.exploit_info if input.exploit_info else "N/A",
+        "cve": cve_id,
+        "cvss": cvss,
+        "cve_string": cve_string,
+        "cwe": f'CWE-{cwe_id}',
+        "cwe_type": cwe_type,
+        "priority_score": input.prioritization_score,
+        "severity": severity[input.severity],
+        "asset_name": input.asset.name,
+        "asset_type": asset_type[input.asset.type],
+        "cloud_type": cloud_type[input.asset.cloud_type],
+        "sensitivity": sensitivity[input.asset.sensitivity],
+        "patch_info": input.patch_info if input.patch_info else "N/A"
+    }
