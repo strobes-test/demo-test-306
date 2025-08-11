@@ -1,0 +1,212 @@
+{
+  "@context": [
+    "https://spdx.org/rdfterms/3.0.0",
+    {
+      "@vocab": "https://spdx.org/rdfterms/3.0.0/"
+    }
+  ],
+  "@graph": [
+    {
+      "@type": "SpdxDocument",
+      "@id": "urn:spdx:document:vulnerable-app-sbom-2024",
+      "createdBy": [
+        "urn:spdx:agent:tool:vulnerability-scanner-2.0"
+      ],
+      "created": "2024-01-15T10:00:00Z",
+      "specVersion": "3.0.0",
+      "profile": [
+        "core",
+        "software",
+        "security"
+      ],
+      "dataLicense": "CC0-1.0",
+      "name": "Vulnerable Web Application SBOM",
+      "element": [
+        "urn:spdx:package:lodash-4.17.20",
+        "urn:spdx:package:express-4.17.1",
+        "urn:spdx:package:log4j-core-2.14.0",
+        "urn:spdx:vulnerability:cve-2021-23337",
+        "urn:spdx:vulnerability:cve-2021-44228",
+        "urn:spdx:vulnerability:cve-2020-28469"
+      ]
+    },
+    {
+      "@type": "Agent",
+      "@id": "urn:spdx:agent:tool:vulnerability-scanner-2.0",
+      "name": "Vulnerability Scanner",
+      "agentType": "tool"
+    },
+    {
+      "@type": "Package",
+      "@id": "urn:spdx:package:lodash-4.17.20",
+      "name": "lodash",
+      "packageVersion": "4.17.20",
+      "suppliedBy": [
+        "urn:spdx:agent:lodash-maintainers"
+      ],
+      "downloadLocation": "https://registry.npmjs.org/lodash/-/lodash-4.17.20.tgz",
+      "filesAnalyzed": false,
+      "primaryPackagePurpose": "library",
+      "externalRef": [
+        {
+          "@type": "ExternalRef",
+          "externalRefType": "packageManager",
+          "locator": "pkg:npm/lodash@4.17.20"
+        }
+      ],
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "6a6b7c0e84f4d4c8a7f79d2e0a0e4a5c58cce44e8a5c5f4c0b7a8d1f2e3a4b5c6d7e8f9"
+        }
+      ]
+    },
+    {
+      "@type": "Package",
+      "@id": "urn:spdx:package:express-4.17.1",
+      "name": "express",
+      "packageVersion": "4.17.1",
+      "suppliedBy": [
+        "urn:spdx:agent:express-maintainers"
+      ],
+      "downloadLocation": "https://registry.npmjs.org/express/-/express-4.17.1.tgz",
+      "filesAnalyzed": false,
+      "primaryPackagePurpose": "framework",
+      "summary": "Fast, unopinionated, minimalist web framework",
+      "externalRef": [
+        {
+          "@type": "ExternalRef",
+          "externalRefType": "packageManager",
+          "locator": "pkg:npm/express@4.17.1"
+        }
+      ]
+    },
+    {
+      "@type": "Package",
+      "@id": "urn:spdx:package:log4j-core-2.14.0",
+      "name": "log4j-core",
+      "packageVersion": "2.14.0",
+      "suppliedBy": [
+        "urn:spdx:agent:apache-foundation"
+      ],
+      "downloadLocation": "https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.14.0/log4j-core-2.14.0.jar",
+      "filesAnalyzed": false,
+      "primaryPackagePurpose": "library",
+      "externalRef": [
+        {
+          "@type": "ExternalRef",
+          "externalRefType": "packageManager",
+          "locator": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.0"
+        }
+      ]
+    },
+    {
+      "@type": "Vulnerability",
+      "@id": "urn:spdx:vulnerability:cve-2021-23337",
+      "name": "CVE-2021-23337",
+      "summary": "Command Injection in Lodash",
+      "description": "Lodash versions prior to 4.17.21 are vulnerable to Command Injection via the template function. An attacker can inject arbitrary commands through template compilation.",
+      "modifiedTime": "2021-02-20T16:00:00Z",
+      "publishedTime": "2021-02-15T16:00:00Z",
+      "withdrawnTime": null,
+      "externalIdentifier": [
+        {
+          "@type": "ExternalIdentifier",
+          "externalIdentifierType": "cve",
+          "identifier": "CVE-2021-23337",
+          "identifierLocator": [
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23337",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-23337"
+          ],
+          "issuingAuthority": "urn:spdx:agent:cve.org"
+        },
+        {
+          "@type": "ExternalIdentifier",
+          "externalIdentifierType": "securityOther",
+          "identifier": "GHSA-35jh-r3h4-6jhm",
+          "identifierLocator": [
+            "https://github.com/advisories/GHSA-35jh-r3h4-6jhm"
+          ],
+          "issuingAuthority": "urn:spdx:agent:github"
+        }
+      ],
+      "externalRef": [
+        {
+          "@type": "ExternalRef",
+          "externalRefType": "securityAdvisory",
+          "locator": "https://github.com/lodash/lodash/security/advisories/GHSA-35jh-r3h4-6jhm"
+        },
+        {
+          "@type": "ExternalRef",
+          "externalRefType": "securityFix",
+          "locator": "https://github.com/lodash/lodash/commit/3469357cff396a26c363f8c1b5a91dde28ba4b1c"
+        }
+      ]
+    },
+    {
+      "@type": "Vulnerability",
+      "@id": "urn:spdx:vulnerability:cve-2021-44228",
+      "name": "CVE-2021-44228",
+      "summary": "Log4Shell - Remote Code Execution in Log4j",
+      "description": "Apache Log4j2 2.0-beta9 through 2.15.0 JNDI features used in configuration, log messages, and parameters do not protect against attacker controlled LDAP and other JNDI related endpoints. An attacker who can control log messages or log message parameters can execute arbitrary code loaded from LDAP servers.",
+      "modifiedTime": "2021-12-14T16:00:00Z",
+      "publishedTime": "2021-12-10T00:00:00Z",
+      "externalIdentifier": [
+        {
+          "@type": "ExternalIdentifier",
+          "externalIdentifierType": "cve",
+          "identifier": "CVE-2021-44228",
+          "identifierLocator": [
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-44228"
+          ],
+          "issuingAuthority": "urn:spdx:agent:cve.org"
+        }
+      ]
+    },
+    {
+      "@type": "Vulnerability",
+      "@id": "urn:spdx:vulnerability:cve-2020-28469",
+      "name": "CVE-2020-28469",
+      "summary": "Server-Side Request Forgery in axios",
+      "description": "The axios npm package before 0.21.1 allows Server-Side Request Forgery.",
+      "publishedTime": "2020-11-06T00:00:00Z",
+      "externalIdentifier": [
+        {
+          "@type": "ExternalIdentifier",
+          "externalIdentifierType": "cve",
+          "identifier": "CVE-2020-28469",
+          "identifierLocator": [
+            "https://nvd.nist.gov/vuln/detail/CVE-2020-28469"
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "VulnAssessmentRelationship",
+      "@id": "urn:spdx:vulnassessment:lodash-cve-2021-23337",
+      "from": "urn:spdx:package:lodash-4.17.20",
+      "to": [
+        "urn:spdx:vulnerability:cve-2021-23337"
+      ],
+      "assessedElement": "urn:spdx:package:lodash-4.17.20",
+      "suppliedBy": [
+        "urn:spdx:agent:security-team"
+      ],
+      "publishedTime": "2024-01-15T10:00:00Z",
+      "vexVersion": "1",
+      "vexStatement": [
+        {
+          "@type": "VexAffectedVulnAssessmentRelationship",
+          "vexStatus": "affected",
+          "vexJustification": "vulnerableCodeNotInExecutePath",
+          "actionStatement": "Upgrade to lodash 4.17.21 or later",
+          "actionStatementTime": [
+            "2024-01-15T10:00:00Z"
+          ]
+        }
+      ]
+    }
+  ]
+}
