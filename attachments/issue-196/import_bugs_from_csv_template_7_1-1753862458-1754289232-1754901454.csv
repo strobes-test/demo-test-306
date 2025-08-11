@@ -1,0 +1,27 @@
+S_NO,asset_name,asset_type,ipaddress,hostname,mac_address,url,title,bug_level,description,steps_to_reproduce,mitigation,severity,vulnerable_code,file_name,start_line_number,end_line_number,affected_endpoints,request,response,port,package_name,affected_versions,installed_version,fixed_version,cve_list,cwe_list,tags_list,region,aws_category,aws_account_id,cloud_type,azure_category,azure_resource
+1,cloud,4,,,,,cloud bug 12345,5,test description,test steps,fix cloud,5,,,,,,,,,,,,,,,,ap-south-1,elb,1245010023,2,,
+2,code,1,,,,http://testphp.vulnweb.com/test,code bug titile,1,test description,test steps,fixed code,4,"eval(""abc"")",main.py,21,21,,,,,,,,,,"1,20,121",,,,,,,
+3,web,1,,,,http://testphp.vulnweb.com/admin,web bug  titile,2,test description,test steps,fix request,3,,,,,http://example.com/,"GET /api/v1/Host: localhost
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+Authorization: JWT testSec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: csrftoken=test","HTTP/1.1 200 OK
+Server: nginx/1.19.4
+Date: Fri, 27 Nov 2020 09:02:35 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+Vary: Accept, Origin
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: DENY
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+Content-Encoding: gzip",,,,,,,,,,,,,,
+4,package,1,,,,http://testphp.vulnweb.com/,package bug  name,6,test description,test steps,fixed package,2,,,,,,,,,python,v1.2-v2.3,v1.1,v1.3,"CVE-2019-6444,CVE-2019-6000",,"tag a , tag b",,,,,,
+5,network,3,192.168.0.1,www.google.com,,,network bug  title,4,test description,steps,fix network,1,,,,,,,,500,,,,,,,,,,,,,
+6,cloud azure,4,,,,,cloud azure - low,5,test description,test steps,fix cloud,1,test,,,,,,,,,,,,,,,westcentralus,,,3,Network Security Groups,/subscriptions/579c1a3f-7fc9-48eb-ba6b-70365f243584/resourceGroups/cloud-shell-storage-centralindia/providers/Microsoft.Network/networkSecurityGroups/sfdsad-nsg
